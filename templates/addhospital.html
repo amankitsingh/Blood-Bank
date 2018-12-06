@@ -1,0 +1,37 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<div>
+  <h1>New Hospital</h1>
+  <p>Please fill in this form to create the New Hospital</p>
+</div>
+<div>
+    <form action="#" method = "POST" class="col-sm-6" style="margin: auto; padding: 2rem 0;">
+    <div class="form-group">
+      <hr>
+      <label for="id"><b>ID:</b></label>
+      <input type="number" placeholder="Enter hospital unique idenification Number" maxlength="10" name="id" class="form-control" required>
+      <br>
+      <label for="name"><b>Hospital Name:</b></label>
+      <input type="text" placeholder="Hospital Name" maxlength="30" name="name" class="form-control" required>
+      <br>
+      <label for="phone"><b>Hospital Phone Number:</b></label>
+      <input type="number" placeholder="Hospital Phone Name" maxlength="30" name="phone" class="form-control" required>
+      <br>
+      <label for="location"><b>Hospital Location:</b></label>
+      <input type="text" placeholder="Location" name="location" maxlength="30" class="form-control" required>
+      <br>
+      <label for="bname"><b>Bloodbank Name:</b></label>
+      <input type="text" placeholder="BloodBank Name" maxlength="30" name="bname" class="form-control" required>
+      <br>
+      <label for="phno"><b>Bloodbank Number:</b></label>
+      <input type="number" placeholder="BloodBank Number" maxlength="30" name="phno" class="form-control"required>
+      <br>
+      <label for="bloodgroup"><b>Blood Group Available:</b></label>
+      <input type="text" placeholder="Blood Group Available" name="bloodgroup" maxlength="30" class="form-control" required>
+      <br>
+      <p>By creating a donation request you agree to our Terms & Privacy.</p>
+      <button type="submit" id="submit">SUBMIT</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

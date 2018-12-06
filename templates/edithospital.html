@@ -1,0 +1,46 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1 class="display-4">Edit {{hospital.name}} Hospital</h1>
+  <p class="lead">Please fill in this form to edit the Hospital</p>
+</div>
+<div >
+  <!--{{url_for('edithospital', hospital_id=hospital.id)}}-->
+    <form action = "#"  method = "POST" class="col-sm-6" style="margin: auto; padding: 2rem 0;">
+      <hr>
+      <div class="form-group">
+      <label for="id" name="id"><b>Hospital Id:</b><b>{{hospital.id}}</b></label>
+      </div>
+      <div class="form-group">
+      <label for="name"><b>Hospital Name:</b></label>
+      <input type="text" placeholder="{{hospital.name}}" maxlength="30" name="name" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="phone"><b>Hospital Phone Number:</b></label>
+      <input type="number" placeholder="{{hospital.phone}}" maxlength="30" name="phone" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="location"><b>Hospital Location:</b></label>
+      <input type="text" placeholder="{{hospital.location}}" name="location" maxlength="30" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="bname"><b>Bloodbank Name:</b></label>
+      <input type="text" placeholder="{{bloodbank.name}}" maxlength="50" name="bname" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="blocation"><b>Blood Bank Location :</b></label>
+      <input type="text" placeholder="{{bloodbank.location}}" maxlength="30" name="blocation" class="form-control">
+      </div>
+      <div class="form-group">
+      <label for="phno"><b>Bloodbank Number:</b></label>
+      <input type="number" placeholder="{{bloodbank.phno}}" maxlength="10" name="phno" class="form-control"
+      </div>
+      <div class="form-group">
+      <label for="bloodgroup"><b>Blood Group Available:</b></label>
+      <input type="text" placeholder="{{bloodbank.bloodgroup}}" name="bloodgroup" maxlength="30" class="form-control">
+      </div>
+      <p>By creating a donation request you agree to our Terms & Privacy.</p>
+      <button type="submit" id="submit">SUBMIT</button>
+  </form>
+</div>
+{% endblock %}

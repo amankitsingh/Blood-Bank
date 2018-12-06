@@ -1,0 +1,22 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<div>
+  {% for hosp in hospital %}
+    {% for bank in bloodbank %}
+      {% if hosp.location == bank.location %}
+        <div class="card">
+          <div class="card-body">
+            <div>
+              <b>Hospital Name : {{hosp.name}}</b><br>
+              <b>Blood bank Location : {{bank.location}}</b>
+              <a class="card-body" href= "{{url_for('requestfromhospital', hospital_name=hosp.name)}}">
+                <button class="btn btn-danger" type ="submit">Select</button>
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <title>Hospital list</title>
+</head>
+<body>
+  <div class="jumbotron">
+    {% include "header.html" %}
+    <h4 class="display-7">Donation</h4>
+    {% for donation in donate %}
+      <div class="card">
+        <div class="card-body">
+          <b>Donor Name:</b>{{donation.name}}<br>
+          <b>Donor Sex:</b>{{donation.sex}}<br>
+          <b>Donor Phone:</b>{{donation.phno}}<br>
+          <b>Donor Age:</b>{{donation.age}}<br>
+          <b>Donor bloodgroup:</b>{{donation.bloodgroup}}<br>
+          <b>Donor address:</b>{{donation.address}}<br>
+          <a href = "{{url_for('deldonar', donation_name = donation.name)}}">
+            <button class="btn btn-danger" type ="submit" name="reject">reject</button>
+            <button class="btn btn-danger" type ="submit">Done</button>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+    <hr>
+    <h4 class="display-7">Blood Request</h4>
+    {% for brequest in blrequest %}
+      <div class="card">
+        <div class="card-body">
+          <b>Requester Name:</b>{{brequest.name}}<br>
+          <b>Requester Email ID:</b>{{brequest.emailid}}<br>
+          <b>Requester Phone:</b>{{brequest.phno}}<br>
+          <b>Requester Sex:</b>{{brequest.sex}}<br>
+          <b>Requester BloodGroup:</b>{{brequest.bloodgroup}}<br>
+          <b>Hospital Request:</b>{{brequest.hospitalname}}<br>
+          <a href = "{{url_for('delrequest', brequest_name = brequest.name)}}">
+            <button class="btn btn-danger" type="submit">reject</button>
+              <button class="btn btn-danger" type ="submit">Done</button>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+    <hr>
+    <h4 class="display-7">Hospitals</h4>
+    <a href = "{{url_for('addhospital')}}">
+      <button type="submit" class="btn btn-primary" >Add Hospital</button>
+    </a>
+    {% for hospital in hospitals %}
+     {% for bloodbank in bloodbank %}
+      {% if hospital.id == bloodbank.hospitalid %}
+      <div class="card">
+        <div class="card-body">
+            <b>Hospital Id :</b>{{hospital.id}}
+            <br>
+            <b>Hospital Name:</b>{{hospital.name}}<br>
+            <b>Hospital Phone:</b>{{hospital.phone}}<br>
+            <b>Hospital Location:</b>{{hospital.location}}<br>
+              <b>BloodBank Name:</b>{{bloodbank.name}}<br>
+              <b>BloodBank Phone:</b>{{bloodbank.phno}}<br>
+              <b>BloodBank BloodGroup Available:</b>{{bloodbank.bloodgroup}}<br>
+            <a href = "{{url_for('edithospital', hospital_id = hospital.id)}}">
+              <button class="btn btn-success" type="submit">edit</button>
+            </a>
+            <a href = "{{url_for('deletehospital', hospital_name = hospital.name)}}">
+              <button class="btn btn-danger" type="submit">Remove</button>
+            </a>
+       {% endif %}
+      {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh6IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+</html>

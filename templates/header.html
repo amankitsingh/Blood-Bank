@@ -1,0 +1,28 @@
+<div class="row top-menu">
+	<div class="col-md-6">
+	<!--	<a href="{{url_for('mainpages')}}">
+			<button type="button" class="btn-danger">
+			<span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home Page
+			</button>
+		</a>-->
+		<a class="navbar-brand" href="{{url_for('mainpages')}}">
+        <img class="brand-img" src="{{ url_for('static', filename='img/logo.png') }}" alt="Bloodbank Logo" height="60" width="50">
+      </a>
+	</div>
+	<br>
+	<br>
+	<hr>
+	<br>
+	<br>
+	<div class = 'flash'>
+		{% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <strong> {{ message }} </strong>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+</div>

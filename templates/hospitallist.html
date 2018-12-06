@@ -1,0 +1,16 @@
+{% extends "mainpage.html" %}
+{% block content %}
+<div>
+  {% for hosp in hospitals %}
+    <div class="card">
+      <div class="card-body">
+        <b>Hospital Name : {{hosp.name}}</b><br>
+        <b>Hospital Location : {{hosp.location}}</b>
+        <a class="card-body" href = "{{url_for('registration')}}"><span></span>
+          <button class="btn btn-danger" type ="submit">Select</button>
+      </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
