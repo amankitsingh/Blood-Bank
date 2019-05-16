@@ -19,11 +19,6 @@ user1 = User(staffid = 1, name = "ankit", password = "neveraskit")
 session.add(user1)
 session.commit()
 
-user2 = User(staffid = 2, name = "abhishek", password = "chalbey")
-
-session.add(user2)
-session.commit()
-
 #Donation table
 #add more 3 different data
 donor = Donor(name="Abhishek", sex="Male", phno=7895784865, age=20, bloodgroup="A+", address="Bihar")
